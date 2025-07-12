@@ -24,7 +24,7 @@ const allTags = proxies.map((p) => p.tag);
 // 6. 自定义目标分组和过滤规则
 const targetGroups = [
     { tag: "⚙️ 手动切换" },
-    { tag: "🤖 海外AI服务", filter: /JNIX|小白/i },
+    { tag: "🤖 AI", filter: /JNIX|小白/i },
     { tag: "🎥 海外流媒体" },
     { tag: "🗃️ PayPal" },
     { tag: "📟 Telegram" },
