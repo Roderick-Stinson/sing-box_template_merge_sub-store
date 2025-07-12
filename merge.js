@@ -28,7 +28,7 @@ const targetGroups = [
     { tag: "🎥 海外流媒体" },
     { tag: "🗃️ PayPal" },
     { tag: "📟 Telegram" },
-    { tag: "🇺🇸 America", filter: /🇺🇸|美国/i },
+    { tag: "🇺🇸 America", filter: /美国|🇺🇸/i },
 ];
 
 // 7. 给每个 group 分配节点
