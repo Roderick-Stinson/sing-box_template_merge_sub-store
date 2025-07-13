@@ -21,15 +21,28 @@ config.outbounds.push(...proxies);
 // 5. 获取新节点 tag 列表
 const allTags = proxies.map((p) => p.tag);
 
-// 7. 将所有节点添加到除 direct 外的 selector 分组中
-const proxyTags = proxies.map(p => p.tag);
+// 6. 自定义目标分组和过滤规则
+const targetGroups = [
+  { tag: "⚙️ 手动切换" },
+  { tag: "🎥 海外流媒体" },
+  { tag: "📟 Telegram" },
+  { tag: "🤖 AI", filter: /JNIX|小白/i },
+  { tag: "🇺🇸 America", filter: /🇺🇸|美国/i }
+];
 
-config.outbounds.forEach(o => {
-    if (o.type === "selector" && o.tag !== "🔄 直连入口") {
-        o.outbounds = proxyTags.length > 0 ? proxyTags : ["🔄 直连入口"];
-    }
+// 7. 给每个 group 分配节点
+targetGroups.forEach(({ tag, filter }) => {
+  const group = config.outbounds.find(
+    (o) => o.tag === tag && Array.isArray(o.outbounds)
+  );
+  if (!group) return;
+
+  const matched = filter
+    ? allTags.filter((t) => filter.test(t))
+    : allTags;
+
+  group.outbounds = matched.length > 0 ? matched : ["🔄 直连入口"];
 });
-
 
 // 8. 输出最终配置
 $content = JSON.stringify(config, null, 2);
