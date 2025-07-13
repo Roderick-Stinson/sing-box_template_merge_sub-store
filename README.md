@@ -8,7 +8,7 @@
 2. 记住在sub-store中你的单条订阅或组合订阅的名称
 3. 在sub-store的文件管理功能中编辑singbox_template.json 添加一个脚本操作，并且选择链接：
 ```
-[https://raw.githubusercontent.com/LongLights/sing-box_template_merge_sub-store/refs/heads/main/merge.js#name=<你在sub-store中的订阅名称>&type=<在sub-store中的订阅类型>#noCache](https://raw.githubusercontent.com/Roderick-Stinson/sing-box_template_merge_sub-store/refs/heads/main/merge.js)
+[https://raw.githubusercontent.com/Roderick-Stinson/sing-box_template_merge_sub-store/refs/heads/main/merge.js#name=<你在sub-store中的订阅名称>&type=<在sub-store中的订阅类型>#noCache]
 ```
 type可以赋值0或1,0表示单条订阅，1表示组合订阅
 
